@@ -1,11 +1,21 @@
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, request, make_response, jsonify, render_template
 
-app = Flask('simply-weather')
+app = Flask(__name__)
 
 @app.route('/')
-def no_data():
-    response = jsonify({'message': 'Hello there!', 'info': 'Using jsonify...', 'status': 200})
-    return response
+def index():
+    return 'Hi! This is the response from the Flask application'
+
+
+@app.route('/profile')
+def profile():
+    return 'This is profile page'
+
+
+@app.route('/login')
+def log_in():
+    return 'This is login page'
+
 
 @app.route('/data/get_error/')
 def return_error():
@@ -36,4 +46,5 @@ def login():
     elif request.method == 'POST':
         return 'Wow! Great, you logged in!'
 
-app.run()
+if __name__ == '__main__':
+   app.run(debug=True)

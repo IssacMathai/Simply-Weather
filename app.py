@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hi! This is the response from the Flask application'
+    return render_template('index.html')
 
 
 @app.route('/profile')

@@ -1210,3 +1210,4 @@ env/lib/python3.12/site-packages/werkzeug-3.0.3.dist-info/LICENSE.txt
 env/lib/python3.12/site-packages/werkzeug-3.0.3.dist-info/METADATA
 env/lib/python3.12/site-packages/werkzeug-3.0.3.dist-info/RECORD
 env/lib/python3.12/site-packages/werkzeug-3.0.3.dist-info/WHEEL
+/.env

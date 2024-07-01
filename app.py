@@ -2,9 +2,19 @@ from flask import Flask, request, make_response, jsonify, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
+dict_with_weather_info = {
+    'Taupo': [20, 'Sunny'],
+    'Wellington': [12, 'Cloudy'],
+    'Christchurch': [9, 'Rainy']
+}
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    if request.method == 'POST':
+        city_name = request.form.get('city_name')
+        dict_with_weather_info[city_name] = ['Unknown', 'Unknown']
+
+    return render_template('index.html', weather=dict_with_weather_info)
 
 
 @app.route('/profile')

@@ -1,6 +1,6 @@
 # Simply Weather
  
-Simply weather is a Python Flask web application designed to show the weather forecast.
+Simply weather is a Python Flask web application designed to show the weather forecast for any city that the user adds.
 Uses OpenWeatherMap's Weather API.
 
 The purpose was to create a full stack project while improving my skills in using APIs.

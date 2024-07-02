@@ -32,7 +32,7 @@ def update_specific_city_weather(city_name):
     r = requests.get('https://api.openweathermap.org/data/2.5/weather', params=payload)
     state = r.json()['weather'][0]['main']
     temp = r.json()['main']['temp']
-    dict_with_weather_info[city_name] = [state, temp]
+    dict_with_weather_info[city_name] = [state, round(temp)]
 
 def update_all_weather():
     for city, info in dict_with_weather_info.items():

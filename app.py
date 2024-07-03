@@ -12,6 +12,7 @@ dict_with_weather_info = {
     'Christchurch': [9, 'Rainy']
 }
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -19,6 +20,7 @@ def index():
         update_specific_city_weather(city_name)
 
     return render_template('index.html', weather=dict_with_weather_info)
+
 
 def update_specific_city_weather(city_name):
     # Get lat and lon
@@ -33,6 +35,7 @@ def update_specific_city_weather(city_name):
     state = r.json()['weather'][0]['main']
     temp = r.json()['main']['temp']
     dict_with_weather_info[city_name] = [state, round(temp)]
+
 
 def update_all_weather():
     for city, info in dict_with_weather_info.items():
@@ -54,14 +57,17 @@ def return_error():
     response = make_response('<p>Oops... Sounds like an error!</p>', 400)
     return response
 
+
 @app.route('/all')
 @app.route('/about')
 def render_about():
     return 'This is a weather web app.'
 
+
 @app.route('/user/<username>/')
 def show_profile(username):
     return "Username: " + username
+
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -78,6 +84,7 @@ def login():
     elif request.method == 'POST':
         return 'Wow! Great, you logged in!'
 
+
 if __name__ == '__main__':
-   update_all_weather()
-   app.run(debug=True)
+    update_all_weather()
+    app.run(debug=True)
